@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AAC 버튼 앱</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: sans-serif;
+      background: #f0f0f0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 3em;
+      margin: 1em 0 0.5em 0;
+      text-align: center;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 3em;
+      flex-wrap: wrap;
+      max-width: 90%;
+      margin-top: 2em;
+    }
+    .aac-button {
+      width: 300px;
+      height: 300px;
+      border: none;
+      border-radius: 1em;
+      background-color: white;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+      cursor: pointer;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .aac-button:hover {
+      background-color: #e0e0e0;
+    }
+    .aac-button img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1em;
+      object-fit: cover;
+      border-radius: 0.5em;
+    }
+    .label {
+      font-size: 1.6em;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <span style='color: green;'>1학년 1반<br>
+    자라고 있어, 잘하고 있어.
+    </span><br><br>
+    <span style='color: black;'>&lt;우리 반 의사소통 판&gt;</span>
+  </h1>
+  <div class="button-container">
+    <button class="aac-button" onclick="speak('엉덩이 쿵 노래 틀어주세요')">
+      <img src="엉덩이쿵.png" alt="엉덩이 쿵">
+      <div class="label">엉덩이 쿵</div>
+    </button>
+    <button class="aac-button" onclick="speak('간식 주세요')">
+      <img src="free-icon-cookies-164659.svg" alt="간식">
+      <div class="label">간식 주세요</div>
+    </button>
+    <button class="aac-button" onclick="speak('놀이터 가고 싶어요')">
+      <img src="free-icon-play-ground-16812231.svg" alt="놀이터">
+      <div class="label">놀이터</div>
+    </button>
+    <button class="aac-button" onclick="speak('화장실 가고 싶어요')">
+      <img src="free-icon-toilet-3130213.svg" alt="화장실">
+      <div class="label">화장실</div>
+    </button>
+  </div>
+
+  <script>
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'ko-KR';
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
+
